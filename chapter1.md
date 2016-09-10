@@ -5,7 +5,10 @@ description : Time Series with Pandas
 --- type:NormalExercise lang:python xp:100 skills:2 key:3dc3440dc3
 ## Introduction to the dataset
 
-In this chapter, we will be using a dataset that comes from a taxi company. head(), to_datetime(), median(), plot() -- One taxi driver
+In this chapter, we will be using a dataset that comes from a taxi company.
+
+head(), to_datetime(), median(), plot() -- One taxi driver
+head(), to_datetime(), median(), plot() -- One taxi driver
 
 *** =instructions
 - Investigate the dataset `taxi` using the Pandas head function
@@ -16,7 +19,9 @@ hint comes here
 
 *** =pre_exercise_code
 ```{python}
-# pec
+import pandas as pd
+taxi = pd.read_csv()
+taxi['unix timestamp']
 ```
 
 *** =sample_code
