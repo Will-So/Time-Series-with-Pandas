@@ -32,7 +32,7 @@ del taxi['id']
 *** =sample_code
 ```{python}
 import pandas as pd
-%pylab inline
+#%pylab inline
 
 # Take a look at the dataset
 
@@ -51,7 +51,7 @@ taxi = taxi.set_index('unix_timestamp')
 *** =solution
 ```{python}
 import pandas as pd
-%pylab inline
+#%pylab inline
 
 # Take a look at the dataset
 taxi.head()
@@ -81,10 +81,10 @@ You may not have noticed but this dataset has missing entries. For whatever reas
 
 In this section, we will identify which values are missing and then fill those missing values with the value before it. 
 
-One problem with our dataset is that it is currently too specific. As a Taxi company, we are less interested in individual fares than we are with fares over a period of time. Because of this, we will aggregate all of the fares on a weekly level. That is, each week will have a single value for the total fare. Luckily, Pandas makes this easy for us!  
+One problem with our dataset is that it is currently too specific. As a Taxi company, we are less interested in individual fares than we are with fares over a period of time. Because of this, we will aggregate all of the fares on a weekly level. That is, each week will have a single value for the total fare. Luckily, Pandas makes this easy for us with the `resample()` function!  
 
 *** =instructions
-- Let's find out which entries 
+- Let's find out which entries are missing. To do this, we combine the `isnull()` function with 
 - instruction 2
 
 *** =hint
@@ -106,7 +106,16 @@ taxi = taxi.set_index('unix_timestamp')
 
 *** =sample_code
 ```{python}
-# sample code
+import pandas as pd
+#%pylab inline
+
+# Find the missing data
+taxi[taxi.total_bill_usd.isnull()]
+
+# Fill the missing data
+
+# Transform the fares to weekly
+
 ```
 
 *** =solution
