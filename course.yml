@@ -1,8 +1,22 @@
-title                : Time Series with Pandas
-instructors          :
- - wills188@gmail.com
-description          : This is an automatically generated demo course which will help you on your way to create an awesome DataCamp course.
-university           : DataCamp
-difficulty_level     : 2
-time_needed          : 1 hour
-programming_language : python
+- chapter_title: Time Series with Pandas
+  chapter_description: Time Series with Pandas
+  exercises:
+  -   type    : NormalExercise
+      title   : Introduction to the dataset 
+      content : head(), to_datetime(), median(), plot() -- One taxi driver
+
+  -   type    : NormalExercise
+      title   : A way to deal with missing data
+      content : fillna(method='ffill'), resample() maybe linear interpolation
+      
+  -   type    : NormalExercise
+      title   : Viewing the drivers' week
+      content : head(), median(), plot() Might have to set_index as well. 
+      
+  -   type    : NormalExercise
+      title   : More Drivers
+      content : Groupby and then repeat the things from the previous section
+  
+  -   type    : NormalExercise
+      title   : A Simple Forecast
+      content : Use median of the last 5 weeks' rolling sum to do it (Forecast Vis -- give them the code)
