@@ -5,14 +5,15 @@ description : Time Series with Pandas
 --- type:NormalExercise lang:python xp:100 skills:2 key:3dc3440dc3
 ## Introduction to the dataset
 
-In this chapter, we will be using a dataset that comes from a taxi company.
+In this chapter, we will be using a dataset that comes from a taxi company. 
 
-head(), to_datetime(), median(), plot() -- One taxi driver
-head(), to_datetime(), median(), plot() -- One taxi driver
+Even plotting this messy data will be informative in many ways 
 
 *** =instructions
 - Investigate the dataset `taxi` using the Pandas head function
-- We see that the `unix timestamp` column isn't a proper datetime. Rather, it is a 
+- We see that the `unix_timestamp` column isn't a proper datetime. Rather, it is a timestamp in unix form. Use `to_datetime` to convert this column to a datetime.
+- How much is the median taxi fair for this driver?
+- Let's plot the 
 
 *** =hint
 hint comes here
@@ -21,17 +22,47 @@ hint comes here
 ```{python}
 import pandas as pd
 taxi = pd.read_csv()
-taxi['unix timestamp']
+
+taxi = taxi.rename(columns={'unix timestamp': 'unix_timestamp'})
+del taxi['id']
 ```
 
 *** =sample_code
 ```{python}
-# sample code
+import pandas as pd
+%pylab inline
+
+# Take a look at the dataset
+
+
+# Change the unix_timestamp column to a proper datetime
+
+
+# Take a look at the median fair amount
+
+
+# Let's look at the plot visually. First we need to set the time as the index
+taxi = taxi.set_index('unix_timestamp)
+
 ```
 
 *** =solution
 ```{python}
-# solution code
+import pandas as pd
+%pylab inline
+
+# Take a look at the dataset
+taxi.head()
+
+# Change the unix_timestamp column to a proper datetime
+taxi.unix_timestamp = pd.to_datetime(original_df.time, unit = 's')
+
+# Take a look at the median fair amount
+taxi.total_bill_usd.median()
+
+# Let's look at the plot visually
+taxi = taxi.set_index('unix_timestamp)
+taxi.total_bill_usd.plot(title='Taxi Fairs Over Time (USD)');
 ```
 
 *** =sct
