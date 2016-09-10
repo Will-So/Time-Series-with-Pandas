@@ -1,4 +1,4 @@
-title: insert course title here
-author_field: insert author name here
-description: insert course description here
+title: Working with Time Series Data with Pandas
+author_field: Will Sorenson
+description: Time Series data is commonly found in a wide array of disciplines and industries and often contain important insights. For example, a city's population over time is a Time Series. Due to its special nature, however, special techniques we need to use some special techniques to deal with Time Series Data. In this course, we explore the basics of dealing with Time Series data with Pandas and other tools. 
 

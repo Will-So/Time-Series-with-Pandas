@@ -5,11 +5,11 @@ description : Time Series with Pandas
 --- type:NormalExercise lang:python xp:100 skills:2 key:3dc3440dc3
 ## Introduction to the dataset
 
-head(), to_datetime(), median(), plot() -- One taxi driver
+In this chapter, we will be using a dataset that comes from a taxi company. head(), to_datetime(), median(), plot() -- One taxi driver
 
 *** =instructions
-- instruction 1
-- instruction 2
+- Investigate the dataset `taxi` using the Pandas head function
+- We see that the `unix timestamp` column isn't a proper datetime. Rather, it is a 
 
 *** =hint
 hint comes here
