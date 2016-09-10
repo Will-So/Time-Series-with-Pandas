@@ -23,7 +23,7 @@ There are a few important things to note when Using Pandas with Time Series. The
 *** =pre_exercise_code
 ```{python}
 import pandas as pd
-#taxi = pd.read_csv()
+taxi = pd.read_csv('')
 
 taxi = taxi.rename(columns={'unix timestamp': 'unix_timestamp'})
 del taxi['id']
@@ -46,7 +46,6 @@ import pandas as pd
 # Let's look at the plot visually. First we need to set the time as the index so Pandas knows
 # How to plot the data
 taxi = taxi.set_index('unix_timestamp')
-
 ```
 
 *** =solution
@@ -58,7 +57,7 @@ import pandas as pd
 taxi.head()
 
 # Change the unix_timestamp column to a proper datetime
-taxi.unix_timestamp = pd.to_datetime(original_df.time, unit = 's')
+taxi.unix_timestamp = pd.to_datetime(taxi.time, unit = 's')
 
 # Take a look at the median fair amount
 taxi.total_bill_usd.median()
@@ -78,8 +77,14 @@ success_msg("Great work!")
 
 fillna(method='ffill'), resample() maybe linear interpolation
 
+You may not have noticed but this dataset has missing entries. For whatever reason, a few of the times have `NaN` entries. At first we think this is a canceled ride but we ask an expert to confirm. It turns out that a bug in the Taxi's reporting system was causing the price not to record. She has already dealt with this bug and tells you that the best predictor of the missing fare is the fare before it. 
+
+In this section, we will identify which values are missing and then fill those missing values with the value before it. 
+
+One problem with our dataset is that it is currently too specific. As a Taxi company, we are less interested in individual fares than we are with fares over a period of time. Because of this, we will aggregate all of the fares on a weekly level. That is, each week will have a single value for the total fare. Luckily, Pandas makes this easy for us!  
+
 *** =instructions
-- instruction 1
+- Let's find out which entries 
 - instruction 2
 
 *** =hint
@@ -87,7 +92,16 @@ hint comes here
 
 *** =pre_exercise_code
 ```{python}
-# pec
+import pandas as pd
+taxi = pd.read_csv('')
+
+taxi = taxi.rename(columns={'unix timestamp': 'unix_timestamp'})
+del taxi['id']
+
+taxi.unix_timestamp = pd.to_datetime(taxi.time, unit = 's')
+taxi = taxi.set_index('unix_timestamp')
+
+
 ```
 
 *** =sample_code
